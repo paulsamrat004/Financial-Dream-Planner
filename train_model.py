@@ -6,7 +6,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeRegressor
-print("[*] Loading salary dataset...")
+print("Loading salary dataset...")
 df = pd.read_csv("salary_data.csv")
 X = df[["Age", "City", "Education", "Job_Role"]]
 y = df["Monthly_Salary"]
