@@ -229,7 +229,7 @@ with tab2:
     ]
     st.bar_chart(chart_df)
 with tab3:
-    st.subheader("🏥 Financial Health Score Assessment")
+    st.subheader("Financial Health Score Assessment")
     health_score, score_status = calculate_health_score(
         total_req_monthly, monthly_capacity
     )
