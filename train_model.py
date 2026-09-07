@@ -42,7 +42,7 @@ else:
     best_model = dt_model
     selected_name = "Decision Tree Regressor"
 
-print(f"\n[+] Selected Model for Deployment: {selected_name}")
+print(f"\n Selected Model for Deployment: {selected_name}")
 joblib.dump(best_model, "best_salary_model.pkl")
 joblib.dump(preprocessor, "preprocessor.pkl")
 metrics = {
@@ -53,4 +53,4 @@ metrics = {
     "selected": selected_name,
 }
 joblib.dump(metrics, "model_metrics.pkl")
-print("[+] Model artifacts saved successfully as '.pkl' files!")
+print(" Model artifacts saved successfully as '.pkl' files!")
