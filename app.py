@@ -265,5 +265,5 @@ with tab4:
     )
     st.table(comparison_metrics)
     st.info(
-        f"🏆 Selected ML Model: **{metrics['selected']}** (Automated reference suggestion: ₹{ml_suggested_salary:,.2f})"
+        f"Selected ML Model: **{metrics['selected']}** (Automated reference suggestion: ₹{ml_suggested_salary:,.2f})"
     )
