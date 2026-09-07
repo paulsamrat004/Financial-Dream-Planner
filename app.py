@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 import streamlit as st
 st.set_page_config(
-    page_title="AI Financial Dream Planner", page_icon="💰", layout="wide"
+    page_title="AI Financial Dream Planner", layout="wide"
 )
 INFLATION_RATE = 0.06
 @st.cache_resource
@@ -68,11 +68,11 @@ def calculate_health_score(total_required, monthly_capacity):
 
 
 # Application Header
-st.title("💰 AI-Powered Financial Dream & Goal Planner")
+st.title("AI-Powered Financial Dream & Goal Planner")
 st.caption(
     "Freshers Goal Planner — Salary Based Feasibility Analysis"
 )
-st.sidebar.header("👤 Profile Details")
+st.sidebar.header(" Profile Details")
 user_name = st.sidebar.text_input("Name")
 user_age = st.sidebar.number_input("Age", min_value=18, max_value=60)
 available_cities = sorted(cost_df["City"].unique().tolist())
@@ -93,7 +93,7 @@ job_roles = [
 ]
 selected_role = st.sidebar.selectbox("Job Role", job_roles)
 st.sidebar.divider()
-st.sidebar.header("💵 Expected / Monthly Salary")
+st.sidebar.header("Expected / Monthly Salary")
 input_df = pd.DataFrame(
     [
         {
@@ -113,12 +113,12 @@ monthly_salary = st.sidebar.number_input(
     step=1000,
 )
 st.sidebar.divider()
-st.sidebar.header("🎯 Goal Timelines (Years)")
+st.sidebar.header("Goal Timelines (Years)")
 marriage_yrs = st.sidebar.slider("Marriage Goal", 1, 15)
 car_yrs = st.sidebar.slider("Car Goal", 1, 15)
 home_yrs = st.sidebar.slider("Home Goal", 1, 20)
 st.sidebar.divider()
-st.sidebar.header("⚙️ Savings Percentage")
+st.sidebar.header("Savings Percentage")
 savings_pct = st.sidebar.slider("Target Savings Rate (% of Salary)", 5, 80, 20)
 monthly_capacity = monthly_salary * (savings_pct / 100.0)
 base_costs = get_city_base_costs(cost_df, selected_city)
@@ -149,10 +149,10 @@ else:
 st.divider()
 tab1, tab2, tab3, tab4 = st.tabs(
     [
-        "📊 Goal Progress & Feasibility",
-        "📈 6% Inflation Comparison",
-        "🏥 Financial Health Score",
-        "🤖 Model Comparison (LR vs DT)",
+        "Goal Progress & Feasibility",
+        "6% Inflation Comparison",
+        "Financial Health Score",
+        "Model Comparison (LR vs DT)",
     ]
 )
 with tab1:
@@ -185,7 +185,7 @@ with tab1:
         if req_h_monthly > 0
         else 1.0
     )
-    st.subheader("💡 Feasibility Recommendation")
+    st.subheader("Feasibility Recommendation")
     if monthly_shortfall > 0:
         st.warning(
             f"You have a monthly shortfall of **₹{monthly_shortfall:,.2f}**. "
@@ -196,7 +196,7 @@ with tab1:
             f"Great job! Your budget has a monthly surplus of **₹{abs(monthly_shortfall):,.2f}**. All planned goals are achievable."
         )
 with tab2:
-    st.subheader("📈 Impact of 6% Annual Inflation: Today vs Future Cost")
+    st.subheader("Impact of 6% Annual Inflation: Today vs Future Cost")
     comparison_data = pd.DataFrame(
         {
             "Goal": ["Marriage", "Car", "Home"],
@@ -250,7 +250,7 @@ with tab3:
         "• **0 - 49**: High risk. High financial pressure; timeline extension needed."
     )
 with tab4:
-    st.subheader("🤖 Machine Learning Model Comparison")
+    st.subheader("Machine Learning Model Comparison")
     comparison_metrics = pd.DataFrame(
         {
             "Metric": ["$R^2$ Score (Accuracy)", "Mean Absolute Error (MAE)"],
